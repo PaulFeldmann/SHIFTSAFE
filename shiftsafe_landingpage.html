@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SHIFTSAFE verbindet lokale Wetterdaten, Tätigkeitsprofile und Schichtplanung zu vorausschauenden Hitzeschutz- und Einsatzempfehlungen.">
+<title>SHIFTSAFE — Plan smarter. Work safer.</title>
+<style>
+:root{--bg:#08131f;--panel:#101f2e;--panel2:#14283a;--ink:#f4f8fb;--muted:#a9bac8;--line:#294052;--mint:#78f0c1;--cyan:#73d8ef;--amber:#ffc66d;--red:#ff7f79}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}
+.brand{font-weight:850;letter-spacing:.11em;font-size:1.05rem}.brand span{color:var(--mint)}.navlinks{display:flex;gap:28px;color:var(--muted);font-size:.92rem}.navlinks a:hover{color:var(--mint)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:9px;background:var(--mint);color:#082019;font-weight:800;border:0;cursor:pointer}.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.hero{padding:82px 0 70px;display:grid;grid-template-columns:1.03fr .97fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--mint);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800}.dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 16px var(--mint)}
+h1{font-size:clamp(3rem,6.2vw,5.7rem);line-height:.98;letter-spacing:-.065em;margin:20px 0 24px;max-width:720px}h1 em{font-style:normal;color:var(--mint)}
+.lead{font-size:1.18rem;color:#c0ced8;max-width:590px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 24px}.micro{color:#8296a7;font-size:.82rem}
+.visual{background:linear-gradient(145deg,#142b3c,#0d1b29);border:1px solid #345065;border-radius:18px;padding:22px;box-shadow:0 28px 90px #0006;position:relative;overflow:hidden}.visual:before{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:#78f0c10c;right:-130px;top:-150px}
+.dashhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;position:relative}.dashhead b{font-size:.9rem}.live{font-size:.72rem;color:var(--mint);border:1px solid #78f0c155;border-radius:99px;padding:4px 9px}
+.metric{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{background:#091724a8;border:1px solid #ffffff12;border-radius:12px;padding:15px}.tile small{display:block;color:#9eb0bf;font-size:.73rem}.tile strong{font-size:1.65rem;letter-spacing:-.04em}.risk{color:var(--amber)}.chart{height:125px;margin-top:16px;background:linear-gradient(180deg,#78f0c118,transparent);border-bottom:1px solid #456071;position:relative;border-radius:8px;overflow:hidden}.chart svg{width:100%;height:100%}.timeline{display:flex;justify-content:space-between;color:#91a5b5;font-size:.7rem;margin-top:7px}.recommend{margin-top:14px;padding:13px;border-radius:10px;background:#78f0c114;border:1px solid #78f0c13b;color:#c7f8e5;font-size:.83rem}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;color:#9eb0bf;font-size:.86rem}.trust .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+section{padding:82px 0}.section-label{color:var(--mint);text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;font-weight:800}h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.08;letter-spacing:-.045em;margin:13px 0 18px}.sub{color:var(--muted);max-width:690px;font-size:1.05rem}
+.problem{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:start}.problem-box{background:linear-gradient(145deg,#172c3c,#101e2b);border:1px solid var(--line);border-radius:16px;padding:25px}.problem-box p{color:#c3d0d9;margin:0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.stat{border-top:2px solid var(--mint);padding-top:12px}.stat b{font-size:1.45rem;display:block}.stat span{font-size:.78rem;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:23px}.num{color:var(--mint);font-weight:850;font-size:.8rem;letter-spacing:.12em}.card h3{margin:12px 0 8px;font-size:1.1rem}.card p{margin:0;color:var(--muted);font-size:.92rem}.icon{width:42px;height:42px;border-radius:11px;background:#78f0c118;display:grid;place-items:center;color:var(--mint);font-size:1.25rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.darkpanel{background:var(--panel);border:1px solid var(--line);padding:26px;border-radius:16px}.rowitem{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}.rowitem:last-child{border:0}.check{color:var(--mint);font-weight:900}.rowitem b{display:block}.rowitem span{color:var(--muted);font-size:.88rem}
+.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:35px}.step{padding:20px 17px;border-top:2px solid var(--mint);background:#102131;border-radius:0 0 12px 12px}.step b{display:block;margin:12px 0 5px}.step p{font-size:.87rem;color:var(--muted);margin:0}
+.demo{background:linear-gradient(130deg,#112b38,#0d1c29);border:1px solid #355265;border-radius:18px;padding:30px;margin-top:34px}.demo-top{display:flex;justify-content:space-between;gap:20px;align-items:center}.demo h3{margin:0;font-size:1.25rem}.pill{font-size:.75rem;color:var(--mint);border:1px solid #78f0c155;border-radius:99px;padding:5px 10px}.bars{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:end;height:155px;margin:28px 0 8px}.barwrap{height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:8px}.bar{width:100%;max-width:55px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--amber),#d98b54)}.bar.cool{background:linear-gradient(180deg,var(--mint),#2e9b81)}.barwrap small{font-size:.72rem;color:var(--muted)}.demo-note{font-size:.78rem;color:#91a5b5}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}.price{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:14px}.price.featured{border-color:var(--mint);box-shadow:0 0 0 1px #78f0c122}.price h3{margin:0 0 8px}.price strong{font-size:2rem;letter-spacing:-.05em}.price p,.price li{color:var(--muted);font-size:.88rem}.price ul{padding-left:18px;min-height:90px}.price .btn{width:100%;margin-top:8px}.disclaimer{font-size:.78rem;color:#8398a9;margin-top:16px}
+.cta{padding:55px 30px;text-align:center;border-radius:18px;background:linear-gradient(135deg,#183a42,#13283a);border:1px solid #3b665f}.cta p{color:#c0d0d8;max-width:610px;margin:0 auto 25px}
+footer{padding:30px 0;border-top:1px solid var(--line);color:#8296a7;font-size:.8rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:850px){.hero,.problem,.split{grid-template-columns:1fr}.hero{padding-top:55px}.cards,.pricing{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:1fr 1fr}.navlinks{display:none}.visual{max-width:620px}}
+@media(max-width:560px){.wrap{width:min(100% - 28px,1160px)}.cards,.pricing,.workflow,.stats{grid-template-columns:1fr}.hero{gap:32px}.metric{grid-template-columns:1fr 1fr}.trust .wrap{display:grid;grid-template-columns:1fr 1fr}.demo{padding:18px}.demo-top{align-items:flex-start;flex-direction:column}section{padding:60px 0}}
+</style>
+</head>
+<body>
+<nav class="wrap">
+  <a class="brand" href="#">SHIFT<span>SAFE</span></a>
+  <div class="navlinks"><a href="#loesung">Lösung</a><a href="#produkt">Produkt</a><a href="#technologie">Technologie</a><a href="#modell">Geschäftsmodell</a></div>
+  <a class="btn" href="#kontakt">Pilotprojekt anfragen ↗</a>
+</nav>
+<main>
+<header class="hero wrap">
+  <div>
+    <div class="eyebrow"><span class="dot"></span> Predictive heat-risk intelligence</div>
+    <h1>Plan smarter.<br><em>Work safer.</em></h1>
+    <p class="lead">SHIFTSAFE verwandelt Wetter-, Standort- und Schichtdaten in konkrete Hitzeschutz- und Einsatzempfehlungen — bevor aus Hitze ein Risiko wird.</p>
+    <div class="actions"><a class="btn" href="#produkt">Produkt entdecken ↘</a><a class="btn ghost" href="#kontakt">Pilotpartner werden</a></div>
+    <div class="micro">Für Bau, Logistik, kommunale Dienste und Outdoor-Teams.</div>
+  </div>
+  <div class="visual" aria-label="Illustratives SHIFTSAFE-Dashboard">
+    <div class="dashhead"><b>Standort-Dashboard · Baustelle Süd</b><span class="live">● LIVE DEMO</span></div>
+    <div class="metric">
+      <div class="tile"><small>Prognostizierte Temperatur · 14:00</small><strong>34,2°</strong></div>
+      <div class="tile"><small>Expositionsindikator</small><strong class="risk">Erhöht</strong></div>
+      <div class="tile"><small>Betroffene Schicht</small><strong>12–16 Uhr</strong></div>
+      <div class="tile"><small>Empfohlene Maßnahme</small><strong style="font-size:1.1rem;color:var(--mint)">Frühstart</strong></div>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 500 125" preserveAspectRatio="none" role="img" aria-label="Illustrativer Tagesverlauf der Hitzebelastung">
+        <defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffc66d" stop-opacity=".42"/><stop offset="1" stop-color="#ffc66d" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0 104 C55 98 75 82 120 70 S190 32 240 25 S320 14 360 34 S440 74 500 88 L500 125 L0 125Z" fill="url(#g)"/>
+        <path d="M0 104 C55 98 75 82 120 70 S190 32 240 25 S320 14 360 34 S440 74 500 88" fill="none" stroke="#ffc66d" stroke-width="3"/>
+        <path d="M0 115H500" stroke="#6b8495" stroke-dasharray="4 5" opacity=".6"/>
+      </svg>
+    </div>
+    <div class="timeline"><span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span></div>
+    <div class="recommend">↗ Empfehlung: schwere Tätigkeiten in kühlere Zeitfenster verlagern und zusätzliche Erholungsphasen prüfen.</div>
+    <div class="micro" style="margin-top:12px">Konzeptvisualisierung · keine Live-Messwerte oder individuelle Gesundheitsbewertung.</div>
+  </div>
+</header>
+<div class="trust"><div class="wrap"><span>BUILT FOR OUTDOOR WORK</span><span>DATA-DRIVEN PREVENTION</span><span>EXPLAINABLE RECOMMENDATIONS</span><span>HUMAN-IN-THE-LOOP</span></div></div>
+
+<section id="loesung" class="wrap">
+  <div class="problem">
+    <div><div class="section-label">Die Herausforderung</div><h2>Hitze ist vorhersehbar. Das Risiko wird oft zu spät eingeplant.</h2><p class="sub">Eine Wetter-App kennt die Temperatur. Ein Einsatzplan kennt die Tätigkeit. SHIFTSAFE bringt beide Perspektiven zusammen — standort- und schichtbezogen.</p></div>
+    <div class="problem-box">
+      <p>Die tatsächliche Wärmebelastung hängt nicht nur von der Lufttemperatur ab. Auch Luftfeuchtigkeit, Wind, Sonneneinstrahlung, körperliche Arbeit, Schutzkleidung und Expositionsdauer spielen eine Rolle. Unternehmen müssen daraus praktikable organisatorische Maßnahmen ableiten.</p>
+      <div class="stats"><div class="stat"><b>01</b><span>Lokale Bedingungen verstehen</span></div><div class="stat"><b>02</b><span>Risiken früher erkennen</span></div><div class="stat"><b>03</b><span>Einsätze besser planen</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="produkt" style="background:#0b1926;border-top:1px solid #ffffff0b;border-bottom:1px solid #ffffff0b">
+ <div class="wrap">
+  <div class="section-label">Die SHIFTSAFE-Lösung</div><h2>Von Rohdaten zu besseren Entscheidungen.</h2>
+  <p class="sub">Eine Plattform. Vier Schritte. Ein gemeinsames Ziel: Hitzeschutz in die tägliche Einsatzplanung integrieren.</p>
+  <div class="cards">
+   <article class="card"><div class="icon">⌁</div><div class="num">01 / CONNECT</div><h3>Daten verbinden</h3><p>Wetterprognosen, Standortmerkmale, Schichtpläne und Tätigkeitsprofile werden in einem einheitlichen Datenmodell zusammengeführt.</p></article>
+   <article class="card"><div class="icon">◉</div><div class="num">02 / PREDICT</div><h3>Belastung prognostizieren</h3><p>Modelle schätzen zeit- und ortsabhängige Belastungsindikatoren und markieren kritische Zeitfenster — mit nachvollziehbarer Unsicherheit.</p></article>
+   <article class="card"><div class="icon">↗</div><div class="num">03 / OPTIMIZE</div><h3>Schichten intelligent planen</h3><p>Ein Optimierungsmodul prüft alternative Startzeiten, Pausen und Aufgabenwechsel unter betrieblichen Nebenbedingungen.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="wrap" id="technologie">
+ <div class="split">
+  <div><div class="section-label">Data Science inside</div><h2>Mehr als ein Dashboard. Ein lernendes Entscheidungssystem.</h2><p class="sub">SHIFTSAFE kombiniert etablierte arbeitswissenschaftliche Bewertungsverfahren mit datengetriebenen Prognosen. Die KI ersetzt keine Fachkraft — sie macht relevante Informationen früher sichtbar.</p>
+   <div class="rowitem"><div class="check">✓</div><div><b>Forecasting & Regression</b><span>Prognose lokaler Umwelt- und Belastungsindikatoren aus Wetter- und Standortdaten.</span></div></div>
+   <div class="rowitem"><div class="check">✓</div><div><b>Risk Classification</b><span>Einordnung in betriebliche Warnstufen anhand fachlich definierter Schwellen und validierter Modelle.</span></div></div>
+   <div class="rowitem"><div class="check">✓</div><div><b>Prescriptive Analytics</b><span>Optimierung von Schicht- und Pausenvorschlägen unter Einhaltung von Personal-, Zeit- und Betriebsrestriktionen.</span></div></div>
+   <div class="rowitem"><div class="check">✓</div><div><b>Explainable AI</b><span>Jede Empfehlung zeigt die ausschlaggebenden Faktoren und die Datenqualität.</span></div></div>
+  </div>
+  <div class="darkpanel">
+    <div class="dashhead"><b>Beispiel: Tagesplanung</b><span class="pill">SIMULATION</span></div>
+    <p style="color:var(--muted);font-size:.88rem;margin-top:0">Illustrativer Belastungsverlauf nach Uhrzeit — kein gemessener Standortdatensatz.</p>
+    <div class="bars">
+      <div class="barwrap"><div class="bar cool" style="height:25%"></div><small>06</small></div>
+      <div class="barwrap"><div class="bar cool" style="height:40%"></div><small>08</small></div>
+      <div class="barwrap"><div class="bar" style="height:68%"></div><small>10</small></div>
+      <div class="barwrap"><div class="bar" style="height:94%"></div><small>12</small></div>
+      <div class="barwrap"><div class="bar" style="height:100%"></div><small>14</small></div>
+      <div class="barwrap"><div class="bar cool" style="height:58%"></div><small>16</small></div>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:.76rem;color:var(--muted)"><span><span style="color:var(--mint)">●</span> Günstigeres Zeitfenster</span><span><span style="color:var(--amber)">●</span> Erhöhte Belastung</span></div>
+    <div class="recommend">Vorschlag im Szenario: körperlich intensive Aufgaben früher einplanen; mittags Tätigkeiten und Exposition gemäß Gefährdungsbeurteilung anpassen.</div>
+  </div>
+ </div>
+</section>
+
+<section style="background:#0b1926">
+ <div class="wrap">
+  <div class="section-label">So funktioniert es</div><h2>Ein klarer Workflow für den Arbeitsalltag.</h2>
+  <div class="workflow">
+   <div class="step"><div class="num">STEP 01</div><b>Standort & Team anlegen</b><p>Arbeitsort, Tätigkeitsarten, Arbeitszeiten und relevante Rahmenbedingungen definieren.</p></div>
+   <div class="step"><div class="num">STEP 02</div><b>Prognose erhalten</b><p>SHIFTSAFE verbindet Prognosedaten mit dem hinterlegten Tätigkeitsprofil.</p></div>
+   <div class="step"><div class="num">STEP 03</div><b>Optionen vergleichen</b><p>Planungsverantwortliche vergleichen alternative Zeitfenster und Maßnahmen.</p></div>
+   <div class="step"><div class="num">STEP 04</div><b>Maßnahmen dokumentieren</b><p>Entscheidungen und Anpassungen werden nachvollziehbar für das Team festgehalten.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="wrap" id="modell">
+ <div class="section-label">Geschäftsmodell</div><h2>Einfach startbar. Über Standorte skalierbar.</h2><p class="sub">SHIFTSAFE wird als B2B-SaaS angeboten. Unternehmen zahlen für die Anzahl verwalteter Standorte und den Funktionsumfang.</p>
+ <div class="pricing">
+  <div class="price"><h3>Starter</h3><strong>99 €</strong><p>/ Monat · Konzeptpreis</p><ul><li>1 Standort</li><li>Wetter- und Risikodashboard</li><li>Basiswarnungen</li></ul><a class="btn ghost" href="#kontakt">Interesse anmelden</a></div>
+  <div class="price featured"><div class="pill">Für wachsende Teams</div><h3 style="margin-top:12px">Business</h3><strong>299 €</strong><p>/ Monat · Konzeptpreis</p><ul><li>Bis zu 5 Standorte</li><li>Schicht- und Pausenszenarien</li><li>Teamberichte & Exporte</li></ul><a class="btn" href="#kontakt">Pilotprojekt anfragen</a></div>
+  <div class="price"><h3>Enterprise</h3><strong>Individuell</strong><p>Für größere Organisationen</p><ul><li>Mehrere Regionen & Standorte</li><li>Integrationen und Rollenrechte</li><li>Individuelle Berichte & Support</li></ul><a class="btn ghost" href="#kontakt">Gespräch vereinbaren</a></div>
+ </div>
+ <div class="disclaimer">Preisannahmen zur Illustration des Geschäftsmodells. Zahlungsbereitschaft und Kostenstruktur müssen in Kundeninterviews und Pilotprojekten validiert werden.</div>
+</section>
+
+<section class="wrap">
+ <div class="cta" id="kontakt"><div class="section-label">Early access · Pilotpartner gesucht</div><h2>Make every shift a smarter shift.</h2><p>Wir suchen Bau-, Logistik- und kommunale Betriebe, die gemeinsam mit uns datenbasierte Hitzeschutzplanung im Arbeitsalltag testen möchten.</p><a class="btn" href="mailto:hello@shiftsafe.example?subject=SHIFTSAFE%20Pilotprojekt">Pilotprojekt anfragen ↗</a><div class="micro" style="margin-top:14px">Konzept-Landingpage für ein Startup-Projekt · Kontaktadresse ist ein Platzhalter.</div></div>
+</section>
+</main>
+<footer><div class="wrap foot"><span class="brand">SHIFT<span>SAFE</span></span><span>Plan smarter. Work safer.</span><span>© 2026 SHIFTSAFE · Konzeptstudie</span></div>
+<div class="wrap" style="margin-top:18px;max-width:1160px">Hinweis: SHIFTSAFE ist ein Konzept und keine medizinische Anwendung oder zertifizierte Gefährdungsbeurteilung. Prognosen und Vorschläge müssen fachlich validiert werden. Arbeitgeberpflichten und Entscheidungen verbleiben bei den verantwortlichen Personen.</div>
+</footer>
+</body></html>
